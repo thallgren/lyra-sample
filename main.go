@@ -33,7 +33,7 @@ func main() {
 					Number int
 					X      int
 				}) *Out {
-					hclog.Default().Info("end", "Name", input.Name)
+					hclog.Default().Info("end", "Name", input.Name, `Number`, input.Number, `X`, input.X)
 					return &Out{
 						map[string]px.Value{
 							`hey`: types.WrapString(input.Name),
