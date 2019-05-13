@@ -24,7 +24,7 @@ func main() {
 		Steps: map[string]lyra.Step{
 			`start`: &lyra.Action{
 				Do: func(input struct{ Name string }) struct{ X int } {
-					hclog.Default().Info("first", "Name", input.Name)
+					hclog.Default().Info("start", "Name", input.Name)
 					return struct{ X int }{32}
 				}},
 			`end`: &lyra.Action{
@@ -33,7 +33,7 @@ func main() {
 					Number int
 					X      int
 				}) *Out {
-					hclog.Default().Info("first", "Name", input.Name)
+					hclog.Default().Info("end", "Name", input.Name)
 					return &Out{
 						map[string]px.Value{
 							`hey`: types.WrapString(input.Name),
